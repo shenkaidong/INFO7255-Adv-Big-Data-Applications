@@ -46,6 +46,7 @@ Child documents can be returned as the results of a search request.
 
 ### Architecture diagram  
 
+![Architecture.jpg](assets/Architecture.jpg)
 
 
 ### Interpretation of system architecture  
@@ -85,7 +86,7 @@ step
 
 In the following curd, except for deletion and post, localhost:8080 is used, and everything else is implemented by localhost:8080/{id}
 
-图
+![Picture1.png](assets/Picture1.png)
 
 2. Verify json schema
 use case is a class in json format. It contains ObjectId and ObjectType. Together they are equivalent to ID.
@@ -158,7 +159,9 @@ About others
 
 Why do you need addressing?
 
-图
+![Picture2.png](assets/Picture2.png)
+
+![Picture3.png](assets/Picture3.png)
 
 So far we know how to uniquely identify objects in the system
 
