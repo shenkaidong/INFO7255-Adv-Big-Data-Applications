@@ -48,10 +48,6 @@ Child documents can be returned as the results of a search request.
 
 ![Architecture.jpg](assets/Architecture.jpg)
 
-
-### Interpretation of system architecture  
-
-
 ## 1.3. Technical selection  
 
 ### Notice
