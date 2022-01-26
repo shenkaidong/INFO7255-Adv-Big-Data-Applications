@@ -184,12 +184,64 @@ A good example summary: http://goessner.net/articles/JsonPath/index.html#e2
 
 online tool: https://jsonpath.curiousconcept.com/
 
+## Use Case
+```json
+{
 
-# 2. Related items  
+	"planCostShares": {
+		"deductible": 2000,
+		"_org": "example.com",
+		"copay": 23,
+		"objectId": "1234vxc2324sdf-501",
+		"objectType": "membercostshare"
+		
+	},
+	"linkedPlanServices": [{
+		"linkedService": {
+			"_org": "example.com",
+			"objectId": "1234520xvc30asdf-502",
+			"objectType": "service",
+			"name": "Yearly physical"
+		},
+		"planserviceCostShares": {
+			"deductible": 10,
+			"_org": "example.com",
+			"copay": 0,
+			"objectId": "1234512xvc1314asdfs-503",
+			"objectType": "membercostshare"
+		},
+		"_org": "example.com",
+		"objectId": "27283xvx9asdff-504",
+		"objectType": "planservice"
+	}, {
+		"linkedService": {
+			"_org": "example.com",
+			"objectId": "1234520xvc30sfs-505",
+			"objectType": "service",
+			"name": "well baby"
+		},
+		"planserviceCostShares": {
+			"deductible": 10,
+			"_org": "example.com",
+			"copay": 175,
+			"objectId": "1234512xvc1314sdfsd-506",
+			"objectType": "membercostshare"
+		},
+		
+		"_org": "example.com",
+		
+		"objectId": "27283xvx9sdf-507",
+		"objectType": "planservice"
+	}],
 
-## 2.1. Personal introduction  
 
- This is my first personal microservice project. When I was writing it, I didn't know anything about practicing git, so I learned a lot through this project. The questions and the knowledge points learned will be sorted out.  
+	"_org": "example.com",
+	"objectId": "12xvxc345ssdsds-508",
+	"objectType": "plan",
+	"planType": "inNetwork",
+	"creationDate": "12-12-2017"
+}
+```
 
 ## Install
 
@@ -214,11 +266,9 @@ Follow the [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/
 Thanks to the following people who participated in the project:  
 [@Kaidong Shen](https://github.com/KaidongShen).  
 
-
 ## License
 
 [KS](LICENSE) © Kaidong Shen  
-
 
 ## @Author
 Kaidong Shen
