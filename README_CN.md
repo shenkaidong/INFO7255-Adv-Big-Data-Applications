@@ -78,10 +78,12 @@ Post, put或者patch之后, 再去kibana上检索, 能够看到文档的更新.
 1.使用spring security来完成oauth2.0的认证, 需要使用jwt, 需要获取token, 然后使用token登录. 获取token, 使用get localhost:8080/token来获取. 获取之后, 在其他的请求中的这里加入token  
 ![Picture1.png](assets/Picture1.png)  
 后面的curd中, 除了删除和post是使用localhost:8080, 其他的都是localhos:8080/{id}来实现的  
+
 2. 验证json schema   
 use case是一个json格式的类. 里面包含ObjectId和ObjectType. 他们两个一起相当于ID.    
 	通过use case生成json schema. 也已经通过网上自动生成json schema的工具生成, 放在了resource下面.   
 	通过使用json schema对use case的验证, 来valid use case的格式  
+
 3. 验证通过后, 使用redis储存这个use case. 储存的方式并不是直接把文档进行储存, 而是先解析需要存的use case, 因为这个是一个复合的json格式的文件. 外面的类里也嵌套了一些类, 这些类都是以json格式储存的. 所以, 在保存的时候, 需要解析json文件, 把里面嵌套的包含ObjectId和ObjectType的json格式的文件也要分开储存, 为了未来使用patch进行merge和Elasticsearch进行搜索提供条件. 这里可以用递归.  
 redis端口就是默认端口就可以  
 可以在yml文件下定义  
