@@ -268,7 +268,7 @@ Thanks to the following people who participated in the project:
 
 ## License  
 
-[KS](LICENSE) © Kaidong Shen  
+[MIT](LICENSE) © Kaidong Shen  
 
 ## @Author  
 Kaidong Shen  
