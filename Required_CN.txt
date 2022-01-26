@@ -1,0 +1,32 @@
+1. 验证json schema  
+use case是一个json格式的类. 
+	有use case, 并且也已经通过网上自动生成json schema的工具生成.
+	通过使用json schema对use case的验证, 来valid use case的格式
+2. 验证通过后, 使用redis储存这个use case.
+redis端口就是默认端口就可以
+可以在yml文件下定义
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+
+3. 使用postman, 来完成post/get/delete/patch/put功能
+	3.1 通过post来提交plan. plan格式为json. post 链接localhost:8080/plan/
+		如果未通过, 返回400并且写明JSON Schema not valid!
+		如果通过, 返回200, 并且返回UUID的ID.
+	3.2 通过get来拿回之前post的json信息. 
+		get后面是UUID生成的ID. 链接如下 localhost:8080/plan/key9828a2cc-0bbd-4305-9adc-ee358c097d26
+	3.3 通过delete删除
+使用之前的UUID来删除
+再次使用GET方法获取ID时, 返回404
+	3.4 通过put来更新
+put更新完成返回200
+并且可以通过GET检查更新之后的效果
+	3.5 通过patch来完成局部修改
+4. 使用Etag来完成 state code 302 NOT MATCH 的功能
+可以在启动类下添加一个拦截器完成
+@Bean
+public Filter filter(){
+   ShallowEtagHeaderFilter filter= new ShallowEtagHeaderFilter();
+   return filter;
+}
+
+5. 使用spring security来完成oauth2.0的认证, 需要获取token, 然后使用token登录
