@@ -1,0 +1,164 @@
+{
+    "mappings": {
+        "properties": {
+            "plan": {
+                "properties": {
+                    "_org": {
+                        "type": "text"
+                    },
+                    "creationDate": {
+                        "type": "date",
+                        "format": "MM-dd-yyyy"
+                    },
+                    "objectId": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "objectType": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "planType": {
+                        "type": "text"
+                    }
+                }
+            },
+
+
+            "linkedPlanServices": {
+                "properties": {
+                    "_org": {
+                        "type": "text"
+                    },
+                    "objectId": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "objectType": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+
+
+                }
+            },
+            "planCostShares": {
+                "properties": {
+                    "_org": {
+                        "type": "text"
+                    },
+                    "copay": {
+                        "type": "long"
+                    },
+                    "deductible": {
+                        "type": "long"
+                    },
+                    "objectId": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "objectType": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
+            },
+            "linkedService": {
+                "properties": {
+                    "_org": {
+                        "type": "text"
+                    },
+                    "name": {
+                        "type": "text"
+                    },
+                    "objectId": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "objectType": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
+            },
+            "planserviceCostShares": {
+                "properties": {
+                    "_org": {
+                        "type": "text"
+                    },
+                    "copay": {
+                        "type": "long"
+                    },
+                    "deductible": {
+                        "type": "long"
+                    },
+                    "objectId": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "objectType": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
+            },
+            "relation": {
+                "type": "join",
+                "relations": {
+                    "plan": ["linkedPlanServices","planCostShares"],
+                    "linkedPlanServices": ["linkedService","planserviceCostShares"]
+                }
+            }
+        }
+    }
+}
