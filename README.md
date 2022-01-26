@@ -14,6 +14,8 @@ Professor: Marwan Sabbouh
 ## Description
 Studies advanced indexing techniques and algorithms for big-data platforms such as Hadoop and NoSQL databases. Covers big-data design and indexing patterns to organize, aggregate, manipulate, and analyze huge amounts of data beyond human scale. Offers students an opportunity to learn advanced techniques to improve the performance and robustness of the advanced big-data programming models. Additional areas of focus include scalable graph databases, advanced indexing, and full-text searching in graph databases.  
 
+Realized fast queries medical distributed system that supported at least 150 requests per second
+
 ## Background  
 The product management team wants to build a new information system that implements use cases.  
 You were selected as the architect of the information system.  The information system exposes the rest APIs and uses a data store to store data. To meet your tight deadlines, you mandated the use of the data store that is managed by an internal team to your company.  
