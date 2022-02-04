@@ -20,14 +20,20 @@ Realized fast queries medical distributed system that supported at least 150 req
 The product management team wants to build a new information system that implements use cases.  
 You were selected as the architect of the information system.  The information system exposes the rest APIs and uses a data store to store data. To meet your tight deadlines, you mandated the use of the data store that is managed by an internal team to your company.  
 As a condition to using the data store, the data store development team requested that you specify the number of requests per second (throughput) that the datastore must support. 
+
 How would you go about specifying the throughput that the datastore must support for the successful implementation of your system?  
 
 You need to convince your development team to store a compounded JSON document, such as the use case that you implemented in the project, as separate objects in the key-value store.  
+
 They insist on storing the compounded JSON document as the value of a single key.  
+
 As an architect, you have the authority to specify functional requirements that they must implement.   
+
 What functional requirements do you present to the development team to convince them to store the compounded JSON document as separate objects?  
 
-Your employer decided that they must implement an OAuth provider that implements the majority of the OAuth 2.0 flows.  They nominate you to be the architect of this implementation.  Being wary of the possibility of getting hacked, you decided to mandate some security requirements as part of the OAuth provider implementation.   
+Your employer decided that they must implement an OAuth provider that implements the majority of the OAuth 2.0 flows.  They nominate you to be the architect of this implementation.  
+
+Being wary of the possibility of getting hacked, you decided to mandate some security requirements as part of the OAuth provider implementation.   
 
 # 1. Introduction
 
@@ -36,10 +42,15 @@ Probably to do something like this, upload a document in JSON format, and pass t
 At the same time, Oauth2.0 and JWT need to be used to complete the security verification, and RS256 asymmetric algorithm encryption is required here.  
 
 In the process of continuous development of the system, if there are too many resources stored in the system, each time you modify it, you want to achieve a partial update instead of the entire document update. At this time, you want to use Patch to achieve a partial update, which is a very economical Resource.   
+
 However, when we store it, compounded JSON document as the value of a single key. In this case, it is very difficult to patch.  
+
 However, if we use to store a compounded JSON document, such as the use case that you implemented in the project, as separate objects in the key-value store. In this case, it is very easy to implement the Patch function.  
+
 And, in the future to realize the search function, it will be easier for us to apply Elasticsearch's parent-child documents.  
+
 he advantages that parent-child has over nested objects are as follows:  
+
 The parent document can be updated without reindexing the children.  
 Child documents can be added, changed, or deleted without affecting either the parent or other children. This is especially useful when child documents are large in number and need to be added or changed frequently.  
 Child documents can be returned as the results of a search request.  
